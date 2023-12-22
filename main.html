@@ -8,6 +8,12 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>main page</title>
   <link rel="stylesheet" href="./css/main.css">
+  <script>
+    let toggle = document.querySelector('.toggle');
+    toggle.addEventListener('click', function () {
+      c1.classList.toggle('./form/form.html');
+    });
+  </script>
 </head>
 
 <body>
@@ -15,7 +21,7 @@
   <div class="wrap">
     <div class="logo">
       <h1>I Five</h1>
-      <p>등록 ⭐</p>
+      <p class="toggle">등록 ⭐</p>
     </div>
 
     <div class="card-wrap">
