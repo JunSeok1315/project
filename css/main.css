@@ -6,7 +6,7 @@
 body {
   width: 100%;
   height: 100vh;
-  background: url(../bg-image.png) no-repeat center/cover;
+  background: url(../image/bg-image.png) no-repeat center/cover;
 }
 
 .wrap {
@@ -18,7 +18,7 @@ body {
 .logo {
   width: 100%;
   height: 80px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .logo h1 {
@@ -26,7 +26,8 @@ body {
   line-height: 80px;
 }
 
-.logo p {
+.logo a {
+  display: inline-block;
   width: 100px;
   height: 40px;
   line-height: 40px;
@@ -35,6 +36,8 @@ body {
   text-align: center;
   margin-top: 20px;
   background: #fff;
+  text-decoration: none;
+  color:#000;
 }
 
 .card-wrap {
