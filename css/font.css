@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "DNFBitBitv2";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeoDunggeunmo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font_DNFBitBitv2 {
+  font-family: "DNFBitBitv2";
+}
+
+.font_NeoDunggeunmo {
+  font-family: "NeoDunggeunmo";
+}
