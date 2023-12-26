@@ -32,7 +32,7 @@
           </div>
           <div class="card-wrap" id="card">
             <div class="card-flip">
-              <div class="card-inner">
+              <!-- <div class="card-inner">
                 <div class="front-card">
                   <img
                     src="https://img.freepik.com/free-vector/flat-design-thug-life-sunglasses-illustration_23-2150209328.jpg?w=826&t=st=1703205239~exp=1703205839~hmac=4ca364056d836fb07395ecb75d9f866abbd7e9e7e6513c7bcc112644a803f038"
@@ -49,7 +49,7 @@
                     >자세히 보기</a
                   >
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@
                     <input
                       type="email"
                       class="form-control"
-                      id="title"
+                      id="user_name"
                       placeholder="이름"
                     />
                   </div>
@@ -88,7 +88,7 @@
                     <input
                       type="email"
                       class="form-control"
-                      id="MBTI"
+                      id="user_mbti"
                       placeholder="MBTI"
                     />
                   </div>
@@ -251,6 +251,55 @@
           </div>
 `;
         $("#card").append(temp_html);
+      });
+
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          let reader = new FileReader();
+          let image = document.getElementById("preview");
+          image.style.width = "180px";
+          image.style.height = "200px";
+
+          reader.onload = function (e) {
+            document.getElementById("preview").src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          document.getElementById("preview").src = "";
+        }
+      }
+      // 등록하기 이미지첨부
+
+      const regimodal = document.getElementById("regmodal");
+      const btnModal = document.getElementById("btn-modal");
+      btnModal.addEventListener("click", (e) => {
+        regmodal.style.display = "flex";
+        retouchBg.style.display = "none";
+      });
+      const closeBtn = document.getElementById("closemodal");
+      closeBtn.addEventListener("click", (e) => {
+        regmodal.style.display = "none";
+      });
+      window.addEventListener("keyup", (e) => {
+        if (regmodal.style.display === "flex" && e.key === "Escape") {
+          regmodal.style.display = "none";
+        }
+      });
+      // 등록하기 등록버튼 클릭 모달창 on, off
+
+      window.addEventListener("keyup", (e) => {
+        if (retouchBg.style.display === "flex" && e.key === "Escape") {
+          retouchBg.style.display = "none";
+        }
+      });
+
+      $(".readmore").click(function () {
+        retouchBg.style.display = "flex";
+        regmodal.style.display = "none";
+      });
+
+      $("#del").click(function () {
+        alert("삭제되었습니다.");
       });
     </script>
     <script src="./js/modal.js"></script>
