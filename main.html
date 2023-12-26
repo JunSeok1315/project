@@ -15,6 +15,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/font.css" />
     <link rel="stylesheet" href="./css/lookModal.css" />
@@ -56,7 +57,7 @@
         <div id="regmodal">
           <div class="form_container">
             <div class="top_bar">
-              <h1 style="margin: auto">등록하기</h1>
+              <h1>등록하기</h1>
             </div>
             <div class="uploadImg">
               <div class="filebox">
@@ -129,7 +130,7 @@
             </div>
           </div>
         </div>
-        <!-- 자세히보기 모달창 -->
+        <!-- 자세히보기(look) 모달창 -->
         <div id="retouchBg">
           <div class="modal_container">
             <button type="button" class="close_btn" id="closemodal">
@@ -194,8 +195,66 @@
       // Firebase 인스턴스 초기화
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
+
+      $("#savebtn").click(async function () {
+        // 사용자가 입력한 값 가져오기
+        let user_name = $("#user_name").val();
+        let user_mbti = $("#user_mbti").val();
+        let advantages = $("#advantages").val();
+        let collaborate = $("#collaborate").val();
+
+        // Firebase에 데이터 추가
+        let doc = {
+          user_name: user_name,
+          user_mbti: user_mbti,
+          advantages: advantages,
+          collaborate: collaborate,
+        };
+        await addDoc(collection(db, "user"), doc);
+
+        // 알림 후 페이지 새로고침
+        alert("등록 완료!");
+        window.location.reload();
+      });
+
+      let docs = await getDocs(collection(db, "user"));
+      docs.forEach((doc) => {
+        let row = doc.data();
+        console.log(row);
+
+        let user_name = row["user_name"];
+        let user_mbti = row["user_mbti"];
+        let advantages = row["advantages"];
+        let collaborate = row["collaborate"];
+
+        let temp_html = `          <div class="card-wrap" id="card">
+            <div class="card-flip">
+              <div class="card-inner">
+                <div class="front-card">
+                  <img
+                    src="https://img.freepik.com/free-vector/flat-design-thug-life-sunglasses-illustration_23-2150209328.jpg?w=826&t=st=1703205239~exp=1703205839~hmac=4ca364056d836fb07395ecb75d9f866abbd7e9e7e65 13c7bcc112644a803f038"
+                    alt="forword-img"
+                  />
+                </div>
+                <div class="back-card">
+                  <img
+                    src="https://img.freepik.com/free-vector/flat-design-thug-life-sunglasses-illustration_23-2150209328.jpg?w=826&t=st=1703205239~exp=1703205839~hmac=4ca364056d836fb07395ecb75d9f866abbd7e9e7e6513c7bcc112644a803f038"
+                    alt="back-card"
+                  />
+                  <h4 class="card title" id="name">${user_name}</h4>
+                  <a data-toggle="modal" href="#" class="readmore"
+                    >자세히 보기</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+`;
+        $("#card").append(temp_html);
+      });
     </script>
     <script src="./js/modal.js"></script>
+    <script src="./js/look.js"></script>
   </body>
 </html>
 <!-- 수정하기나 등록하기 누르면 새로고침 되는 자바스크립트 만들기. 
