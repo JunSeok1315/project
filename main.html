@@ -31,8 +31,8 @@
             <button id="btn-modal" class="font_NeoDunggeunmo">등록⭐</button>
           </div>
           <div class="card-wrap" id="card">
-            <div class="card-flip">
-              <!-- <div class="card-inner">
+            <!-- <div class="card-flip">
+              <div class="card-inner">
                 <div class="front-card">
                   <img
                     src="https://img.freepik.com/free-vector/flat-design-thug-life-sunglasses-illustration_23-2150209328.jpg?w=826&t=st=1703205239~exp=1703205839~hmac=4ca364056d836fb07395ecb75d9f866abbd7e9e7e6513c7bcc112644a803f038"
@@ -49,8 +49,8 @@
                     >자세히 보기</a
                   >
                 </div>
-              </div> -->
-            </div>
+              </div>
+            </div> -->
           </div>
         </div>
         <!-- 등록 모달창 -->
@@ -142,9 +142,21 @@
               </div>
               <div class="user_info">
                 <label for="user_name">이름</label>
-                <input type="text" name="user_name" id="user_name" />
+                <input
+                  type="text"
+                  name="user_name"
+                  id="user_name"
+                  value=""
+                  readonly
+                />
                 <label for="user_mbti">MBTI</label>
-                <input type="text" name="user_mbti" id="user_mbti" />
+                <input
+                  type="text"
+                  name="user_mbti"
+                  id="user_mbti"
+                  value=""
+                  readonly
+                />
                 <div class="user_url">
                   <a href="#" class="velog_color">
                     <i class="fa-solid fa-v"></i>
@@ -157,9 +169,9 @@
             </div>
             <div class="modal_content">
               <label for="advantages">장점</label>
-              <textarea name="advantages" id="advantages"></textarea>
+              <textarea name="advantages" id="advantages" readonly></textarea>
               <label for="collaborate">협업 스타일</label>
-              <textarea name="collaborate" id="collaborate"></textarea>
+              <textarea name="collaborate" id="collaborate" readonly></textarea>
             </div>
             <div class="modal_btns">
               <button type="button" id="fix">수정하기</button>
@@ -240,7 +252,7 @@
                   <img
                     src="https://img.freepik.com/free-vector/flat-design-thug-life-sunglasses-illustration_23-2150209328.jpg?w=826&t=st=1703205239~exp=1703205839~hmac=4ca364056d836fb07395ecb75d9f866abbd7e9e7e6513c7bcc112644a803f038"
                     alt="back-card"
-                  />
+                  />  
                   <h4 class="card title" id="name">${user_name}</h4>
                   <a data-toggle="modal" href="#" class="readmore"
                     >자세히 보기</a
@@ -249,8 +261,51 @@
               </div>
             </div>
           </div>
+          
 `;
+        let temp_html2 = `       <div class="modal_container">
+            <button type="button" class="close_btn" id="closemodal">
+              <i class="fa-solid fa-x"></i>
+            </button>
+            <div class="modal_info">
+              <div class="user_img">
+                <img src="./image/user.jpg" alt="user image" />
+              </div>
+              <div class="user_info">
+                <label for="user_name">이름</label>
+                <input type="text" name="user_name" id="user_name" value="${user_name}"readonly/>
+                <label for="user_mbti">MBTI</label>
+                <input type="text" name="user_mbti" id="user_mbti" value="${user_mbti}" readonly/>
+                <div class="user_url">
+                  <a href="#" class="velog_color">
+                    <i class="fa-solid fa-v"></i>
+                  </a>
+                  <a href="#" class="github_color">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="modal_content">
+              <label for="advantages">장점</label>
+              <textarea name="advantages" id="advantages" readonly>${advantages}</textarea>
+              <label for="collaborate">협업 스타일</label>
+              <textarea name="collaborate" id="collaborate" readonly>${collaborate}</textarea>
+            </div>
+            <div class="modal_btns">
+              <button type="button" id="fix">수정하기</button>
+              <button type="button" id="del">삭제하기</button>
+            </div>
+          </div>
+`;
+
         $("#card").append(temp_html);
+        $("#retouchBg").append(temp_html2);
+      });
+
+      $("#postingBtn").click(async function () {
+        let doc = { name: "sieun", age: "22" };
+        await addDoc(collection(db, "albums"), doc);
       });
 
       function readURL(input) {
