@@ -111,4 +111,16 @@ body {
   width: 90%;
   height: 70%;
   padding: 20px;
+  border-radius: 12%;
+}
+/* CSS 추가 */
+.back-card a {
+  border-radius: 20px;
+  height: 37px;
+  border: none;
+  font-weight: bold;
+  background-color: #0a82ff;
+  color: white;
+  font-size: 20px;
+  padding: 0 15px;
 }
