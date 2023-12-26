@@ -4,13 +4,12 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   height: 100vh;
   background: url(../image/bg-image.png) no-repeat center/cover;
+}
+
+.readmore {
+  margin-bottom: 25px;
 }
 
 #regmodal {
@@ -20,146 +19,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.form_container {
-  width: 500px;
-  height: 650px;
-  padding: 30px 30px 0 30px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 5px 5px 0 rgb(129, 129, 129);
-  position: relative;
-}
-
-/* 테두리 */
-.modal_bg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* 밖 배경 */
-.top_bar {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* 상단 등록하기, */
-.uploadImg {
-  margin: 30px;
-}
-
-/* 상단 바 제외한 영역 */
-
-.imageupload {
-  display: flex;
-  flex-direction: column;
-}
-
-.filebox {
-  width: 300px;
-  margin: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.filebox label:hover {
-  background-color: #47a0ff;
-}
-
-.filebox label:first-child {
-  margin-right: 20px;
-}
-
-.filebox label {
-  display: flex;
-  padding: 4px 8px;
-  margin: auto;
-  line-height: normal;
-  border-radius: 15px;
-  cursor: pointer;
-  color: white;
-  background-color: #0a82ff;
-}
-
-.filebox input[type="file"] {
-  width: 0px;
-  height: 0px;
-  margin: 1px;
-}
-
-.imgbackground {
-  background-color: white;
-  width: 180px;
-  height: 200px;
-}
-
-/* 이미지 첨부쪽 */
-
-.floatinglabel1 input {
-  height: 50px;
-  width: 170px;
-  box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
-  margin: 8px;
-  border-radius: 8px;
-  display: grid;
-  grid-auto-flow: column;
-}
-
-/* 이름, MBTI, 블로그 주소, github 주소 */
-.modal_content textarea {
-  width: 100%;
-  height: 90px;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
-  outline: none;
-  font-size: 15px;
-  resize: none;
-}
-
-/* 장점, 협업스타일 */
-
-.underlabel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.mybtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mybtn button {
-  width: 100px;
-  height: 35px;
-  border-radius: 15px;
-  border: none;
-  background-color: #0a82ff;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  margin-right: 20px;
-}
-
-.mybtn button:hover {
-  background-color: #47a0ff;
-}
-
-.mybtn button:first-child {
-  margin-right: 20px;
-}
-
-/* 버튼 */
-
-/* 김언효 부분 */
 
 .wrap {
   width: 1300px;
@@ -171,6 +30,7 @@ body {
   width: 100%;
   height: 80px;
   margin-bottom: 50px;
+  color: #007bff;
 }
 
 .logo h1 {
@@ -226,15 +86,12 @@ body {
   backface-visibility: hidden;
 }
 
-.front-card > img,
-.back-card > img {
-  border-radius: 20px;
-}
-
 .front-card > img {
   width: 100%;
   height: 100%;
   background-size: contain;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .back-card {
@@ -245,212 +102,13 @@ body {
   justify-content: space-around;
   align-items: center;
   background-color: #fff;
+  border-radius: 20px;
   transform: rotateY(180deg);
 }
 
 .back-card > img {
-  width: 80%;
-  background-size: cover;
+  object-fit: cover;
+  width: 90%;
+  height: 70%;
   padding: 20px;
-}
-
-/* CSS 추가 */
-.back-card a {
-  display: inline-block;
-  border-radius: 20px;
-  height: 35px;
-  border: none;
-  background-color: #0a82ff;
-  color: white;
-  font-size: 16px;
-  line-height: 35px;
-  padding: 0 15px;
-}
-.back-card a:hover {
-  background-color: #47a0ff;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* 조성준님 부분 */
-
-#retouchBg {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-  color: black;
-}
-
-label {
-  color: #282828;
-}
-
-/* modal background */
-
-/* modal 전체 틀 */
-.modal_container {
-  width: 410px;
-  height: 540px;
-  padding: 30px 30px 0 30px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 5px 5px 0 rgb(129, 129, 129);
-  position: relative;
-}
-
-/* modal 닫기 버튼 */
-.modal_container .close_btn {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  padding: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.modal_container .close_btn i {
-  font-size: 18px;
-}
-
-/* modal 팀원 정보 틀 */
-.modal_info {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.modal_info .user_img {
-  width: 180px;
-  height: 180px;
-}
-
-.modal_info .user_img img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.user_info {
-  display: flex;
-  flex-direction: column;
-}
-
-.user_info label {
-  margin-bottom: 3px;
-}
-
-.user_info input {
-  width: 150px;
-  height: 35px;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
-  border: none;
-  outline: none;
-  font-size: 16px;
-}
-
-.user_info .user_url {
-  margin-top: 7px;
-}
-
-.user_info .user_url a {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-}
-
-.user_info .user_url a:first-child {
-  margin-right: 5px;
-}
-
-.user_info .user_url a i {
-  display: block;
-  margin-top: 6px;
-  font-size: 28px;
-  text-align: center;
-}
-
-.user_info .user_url .velog_color {
-  background-color: #64db99;
-  color: white;
-}
-
-.user_info .user_url .velog_color:hover {
-  background-color: rgb(151, 235, 189);
-}
-
-.user_info .user_url .github_color {
-  background-color: #282828;
-}
-
-.user_info .user_url .github_color:hover {
-  background-color: #868686;
-}
-
-.user_info .user_url .github_color i {
-  color: white;
-}
-
-/* modal 컨텐츠 틀 */
-.modal_content {
-  width: 100%;
-}
-
-.modal_content label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.modal_content textarea {
-  width: 100%;
-  height: 90px;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
-  outline: none;
-  font-size: 15px;
-  resize: none;
-}
-
-.modal_content textarea:last-child {
-  margin-bottom: 13px;
-}
-
-/* modal 수정, 삭제 버튼 */
-.modal_btns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal_btns button {
-  width: 100px;
-  height: 35px;
-  border-radius: 15px;
-  border: none;
-  background-color: #0a82ff;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.modal_btns button:hover {
-  background-color: #47a0ff;
-}
-
-.modal_btns button:first-child {
-  margin-right: 20px;
 }
