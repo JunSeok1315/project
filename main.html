@@ -132,7 +132,7 @@
         </div>
         <!-- 자세히보기(look) 모달창 -->
         <div id="retouchBg">
-          <div class="modal_container">
+          <!-- <div class="modal_container">
             <button type="button" class="close_btn" id="closemodal">
               <i class="fa-solid fa-x"></i>
             </button>
@@ -177,7 +177,7 @@
               <button type="button" id="fix">수정하기</button>
               <button type="button" id="del">삭제하기</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -191,9 +191,12 @@
         addDoc,
       } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
       import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import {
+        doc,
+        deleteDoc,
+      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
       // Firebase 구성 정보 설정
-
       const firebaseConfig = {
         apiKey: "AIzaSyB_R5K58rxDN6wQemVP3067gsIaGrwUoGo",
         authDomain: "ifive-cd465.firebaseapp.com",
@@ -352,8 +355,11 @@
         retouchBg.style.display = "flex";
         regmodal.style.display = "none";
       });
+      // 삭제 기능 구현
 
       $("#del").click(function () {
+        const docRef = doc(db, "user", "o4iQlieaIhflNGUUPK92");
+        deleteDoc(docRef);
         alert("삭제되었습니다.");
       });
     </script>
